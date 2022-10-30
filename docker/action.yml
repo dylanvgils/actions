@@ -6,9 +6,7 @@ inputs:
     required: true
     default: 'World'
 runs:
-  using: 'composite'
-  steps:
-    uses: dylanvgils/actions/docker
-    with:
-      who-to-greet: ${{ inputs.who-to-greet }}
-    run: echo "Hello world"
+  using: 'docker'
+  image: 'docker/Dockerfile'
+  args:
+    - ${{ inputs.who-to-greet }}
