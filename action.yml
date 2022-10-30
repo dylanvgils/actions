@@ -23,7 +23,7 @@ runs:
       if: ${{ github.event_name == 'push' }}
       run: |
         echo "The commit sha was: ${{ github.event.head_commit.id }}"
-        echo "Commited by: ${{ github.event.committer.name }}"
+        echo "Commited by: ${{ github.event.head_commit.committer.name }}"
     - shell: bash
       run: |
         gh api \
