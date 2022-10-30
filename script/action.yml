@@ -1,0 +1,11 @@
+name: 'Hello World: Script'
+description: 'Greet someone and record the time'
+inputs:
+  time-of-greeting:
+    description: 'The time the greeting was sent'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - shell: pwsh
+      run: print-timestamp.ps1 -Timestamp ${{ inputs.time-of-greeting }}

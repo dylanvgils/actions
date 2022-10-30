@@ -9,7 +9,13 @@ runs:
   using: 'composite'
   steps:
     - uses: dylanvgils/actions/docker@main
+      id: hello
       with:
         who-to-greet: ${{ inputs.who-to-greet }}
     - shell: bash
-      run: echo "Hello world"
+      run: |
+        echo "Echo from the composite action" 
+        echo "The time was: ${{ steps.hello.outputs.time }}"
+    - uses: dylanvgils/actions/script@main
+      with:
+        time-of-greeting: ${{ steps.hello.outputs.time }}
