@@ -3,5 +3,5 @@ param (
     [string]$Timestamp
 )
 
-Write-Host "Message from script"
+Write-Host "Message from powershell script"
 Write-Host "The timestamp was: $Timestamp"
