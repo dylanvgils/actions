@@ -19,6 +19,6 @@ runs:
     - uses: dylanvgils/actions/script@main
       with:
         time-of-greeting: ${{ steps.hello.outputs.time }}
-    - uses: bash
+    - shell: bash
       run: |
         gh --version
