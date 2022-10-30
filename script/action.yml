@@ -8,6 +8,8 @@ runs:
   using: 'composite'
   steps:
     - shell: bash
-      run: pwd
+      run: |
+        pwd
+        ls
     - shell: pwsh
       run: ./print-timestamp.ps1 -Timestamp "${{ inputs.time-of-greeting }}"
