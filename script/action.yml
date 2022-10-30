@@ -8,4 +8,4 @@ runs:
   using: 'composite'
   steps:
     - shell: pwsh
-      run: print-timestamp.ps1 -Timestamp ${{ inputs.time-of-greeting }}
+      run: ./print-timestamp.ps1 -Timestamp "${{ inputs.time-of-greeting }}"
