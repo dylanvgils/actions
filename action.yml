@@ -8,7 +8,7 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - uses: dylanvgils/actions/docker
+    - uses: dylanvgils/actions/docker@main
       with:
         who-to-greet: ${{ inputs.who-to-greet }}
     - shell: bash
