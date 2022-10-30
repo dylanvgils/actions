@@ -9,5 +9,5 @@ jobs:
         uses: dylanvgils/actions@main
         with:
           who-to-greet: 'Mona the Octocat'
-        # env:
-        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
