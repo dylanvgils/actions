@@ -7,5 +7,7 @@ inputs:
 runs:
   using: 'composite'
   steps:
+    - shell: bash
+      run: pwd
     - shell: pwsh
-      run: script/print-timestamp.ps1 -Timestamp "${{ inputs.time-of-greeting }}"
+      run: ./print-timestamp.ps1 -Timestamp "${{ inputs.time-of-greeting }}"
