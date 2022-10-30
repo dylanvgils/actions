@@ -1,5 +1,5 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Hello World: Composite'
+description: 'Composite action'
 inputs:
   who-to-greet:
     description: 'Who to greet'
@@ -8,7 +8,8 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    uses: dylanvgils/actions/docker
-    with:
-      who-to-greet: ${{ inputs.who-to-greet }}
-    run: echo "Hello world"
+    - uses: dylanvgils/actions/docker
+      with:
+        who-to-greet: ${{ inputs.who-to-greet }}
+    - shell: bash
+      run: echo "Hello world"
