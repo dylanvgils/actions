@@ -21,4 +21,4 @@ runs:
         time-of-greeting: ${{ steps.hello.outputs.time }}
     - shell: bash
       run: |
-        gh --version
+        gh auth status
