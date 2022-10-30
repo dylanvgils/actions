@@ -20,6 +20,11 @@ runs:
       with:
         time-of-greeting: ${{ steps.hello.outputs.time }}
     - shell: bash
+      if: ${{ github.event_name == 'push' }}
+      run: |
+        echo "The commit sha was: ${{ github.event.head_commit.id }}"
+        echo "Commited by: ${{ github.event.committer.name }}"
+    - shell: bash
       run: |
         gh api \
           --method POST \
