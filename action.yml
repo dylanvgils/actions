@@ -21,4 +21,8 @@ runs:
         time-of-greeting: ${{ steps.hello.outputs.time }}
     - shell: bash
       run: |
-        gh auth status
+        gh api \
+          --method POST \
+          -H "Accept: application/vnd.github+json" \
+          /repos/dylanvgils/actions/issues/1/comments \
+          -f body='Hello World, this is a test comment'
