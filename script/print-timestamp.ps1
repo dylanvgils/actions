@@ -1,6 +1,6 @@
 param (
     [Parameter(Position=0, mandatory=$true)]
-    [string]$Timestamp,
+    [string]$Timestamp
 )
 
 Write-Host "Message from script"
