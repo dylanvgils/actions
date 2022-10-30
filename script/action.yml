@@ -7,8 +7,5 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - shell: bash
-      run: |
-        ls -la
     - shell: pwsh
-      run: ./print-timestamp.ps1 -Timestamp "${{ inputs.time-of-greeting }}"
+      run: ${{ github.action_path }}/print-timestamp.ps1 -Timestamp "${{ inputs.time-of-greeting }}"
