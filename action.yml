@@ -12,6 +12,7 @@ runs:
       id: hello
       with:
         who-to-greet: ${{ inputs.who-to-greet }}
+        
     - shell: bash
       run: |
         echo "Echo from the composite action" 
@@ -19,15 +20,18 @@ runs:
     - uses: dylanvgils/actions/script@main
       with:
         time-of-greeting: ${{ steps.hello.outputs.time }}
+
     - shell: bash
       if: ${{ github.event_name == 'push' }}
       run: |
         echo "The commit sha was: ${{ github.event.head_commit.id }}"
         echo "Commited by: ${{ github.event.head_commit.committer.name }}"
-    - shell: bash
-      run: |
-        gh api \
-          --method POST \
-          -H "Accept: application/vnd.github+json" \
-          /repos/dylanvgils/actions/issues/1/comments \
-          -f body='Hello World, this is a test comment'
+
+    # Paste comment on issue
+    # - shell: bash
+    #   run: |
+    #     gh api \
+    #       --method POST \
+    #       -H "Accept: application/vnd.github+json" \
+    #       /repos/dylanvgils/actions/issues/1/comments \
+    #       -f body='Hello World, this is a test comment'
